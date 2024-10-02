@@ -21,6 +21,8 @@ ip_address = '192.168.168.46'
 client = pl.PLC(ip_address)
 client.SocketTimeout = 100
 
+testing = True
+
 if __name__ == '__main__':
     child_script = "heartbeatB.py"
 
@@ -67,7 +69,8 @@ if __name__ == '__main__':
         sys.exit(1)
 
     try:
-        aul.wait_for_plc(client, tag_init)
+        if not testing:
+            aul.wait_for_plc(client, tag_init)
         sensor.current_t = time.time()
         print('Running!')
         sensor.run()
