@@ -36,6 +36,5 @@ if __name__ == "__main__":
             
     except KeyboardInterrupt:
         print("Child process interrupted and stopping...")
-        
     finally:
         print("Stopped")
