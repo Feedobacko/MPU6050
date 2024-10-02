@@ -27,7 +27,6 @@ bus = smbus.SMBus(1)  # or 0 depending on your Raspberry Pi version
 time.sleep(1)
 address = 0x68  # MPU6050 address
 
-set_accel_range(ACCEL_RANGE_16G)
 
 try:
     bus.write_byte_data(address, PWR_MGMT_1, 0x00)
@@ -117,3 +116,5 @@ def read_accel_range(raw = False):
             return 16
         else:
             return -1
+
+set_accel_range(ACCEL_RANGE_16G)
