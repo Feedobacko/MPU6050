@@ -21,7 +21,16 @@ def send_float(client_socket, data):
         client_socket.sendall(packed_data)
     except Exception as e:
         print(f"Error sending data: {e}")
-
+        
+def send_string(data):
+    # Encode the string into bytes
+    encoded_data = data.encode('utf-8')
+    # Create a TCP/IP socket
+    try:
+        client_socket.sendall(encoded_data)
+    except Exception as e:
+        raise RuntimeError(f'Error sending string: {e}')
+        
 def start_server(host, port):
     # Create a TCP/IP socket
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
