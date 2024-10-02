@@ -1,4 +1,5 @@
 import smbus
+import time
 
 GRAVITY_MS2 = 9.80665
 
