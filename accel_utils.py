@@ -22,7 +22,7 @@ def send_float(client_socket, data):
     except Exception as e:
         print(f"Error sending data: {e}")
         
-def send_string(data):
+def send_string(client_socket, data):
     # Encode the string into bytes
     encoded_data = data.encode('utf-8')
     # Create a TCP/IP socket

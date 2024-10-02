@@ -45,9 +45,9 @@ if __name__ == '__main__':
         sys.exit(1)
 
     try:
-        aul.send_string(foldername)  # Changed to match naming convention
+        aul.send_string(client_socket, foldername)  # Changed to match naming convention
         filename = input('File Name: ')
-        aul.send_string(filename)
+        aul.send_string(client_socket, filename)
 
     except Exception as e:
         print(f"Error sending data: {e}")
