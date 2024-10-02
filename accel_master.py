@@ -6,10 +6,10 @@ import pylogix as pl
 import accel_logger as alo
 import accel_utils as aul
 
-host = '192.168.168.67'  # Replace with the server's IP address
+host = '192.168.168.67'  
 port = 65410
 
-foldername = 'pruebas-full'  # Changed to match naming convention
+foldername = 'pruebas-full'  
 
 save_every = 1000
 desired_hz = 160
@@ -45,7 +45,7 @@ if __name__ == '__main__':
         sys.exit(1)
 
     try:
-        aul.send_string(client_socket, foldername)  # Changed to match naming convention
+        aul.send_string(client_socket, foldername)  
         filename = input('File Name: ')
         aul.send_string(client_socket, filename)
 
@@ -57,20 +57,11 @@ if __name__ == '__main__':
 
     try:
         print('Init Logger')
-        sensor = alo.AccelerometerLogger(filename, foldername, save_every, client, tag_X, desired_hz=desired_hz)  # Updated argument order
+        sensor = alo.AccelerometerLogger(filename, foldername, save_every, client, tag_X, desired_hz=desired_hz) 
         sensor.calibrate()
 
     except Exception as e:
         print(f"Sensor initialization or calibration error: {e}")
-        client_socket.close()
-        aul.stop_child_process(child_process)
-        sys.exit(1)
-
-    try:
-        # Assuming bus and address are defined elsewhere in the full code
-        bus.write_byte_data(address, PWR_MGMT_1, 0x00)  # Ensure bus and address are properly defined
-    except Exception as e:
-        print(f"Bus write error: {e}")
         client_socket.close()
         aul.stop_child_process(child_process)
         sys.exit(1)
