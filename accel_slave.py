@@ -19,7 +19,7 @@ ip_address = '192.168.168.46'
 client = pl.PLC(ip_address)
 client.SocketTimeout = 100
 
-testing = True
+testing = False
     
 if __name__ == '__main__':
     child_script = "heartbeatA.py"
