@@ -61,6 +61,7 @@ if __name__ == '__main__':
         print('Init Logger')
         sensor = alo.AccelerometerLogger(filename, foldername, save_every, client, tag_X, desired_hz=desired_hz) 
         sensor.calibrate()
+        sensor.send_after_calib()
 
     except Exception as e:
         print(f"Sensor initialization or calibration error: {e}")

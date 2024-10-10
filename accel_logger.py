@@ -73,9 +73,17 @@ class AccelerometerLogger():
         self.y_offset = np.mean(Ay_list)
         self.z_offset = np.mean(Az_list)
 
+        if self.x_offset == 0.0 or self.y_offset == 0.0 or self.z_offset == 0.0:
+            print('----- Recalibrating -----')
+            _, _, _ = self.calibrate()
+
         print("Calibrated values: Ax: {}, Ay: {}, Az: {}".format(self.x_offset, self.y_offset, self.z_offset))
 
         return self.x_offset, self.y_offset, self.z_offset
+        
+    def send_after_calib(self):
+        self.update_values()
+        self.send_accel()
         
     def add_to_time(self):
         act_time = time.time()

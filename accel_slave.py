@@ -53,7 +53,8 @@ if __name__ == '__main__':
         print('Init logger')
         sensor = alo.AccelerometerLogger(filename, foldername, save_every, client, tag_X, desired_hz=desired_hz)
         sensor.calibrate()
-        
+        sensor.send_after_calib()
+     
     except Exception as e:
         aul.handle_exception(e, connection, server_socket, child_process)
 
