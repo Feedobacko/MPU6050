@@ -52,7 +52,7 @@ class AccelerometerLogger():
         self.ax_rms = 0
         self.ay_rms = 0
         self.az_rms = 0
-            
+        self.start_time = time.perf_counter()
         self.initialize_csv_file()
     
     def calibrate(self):
@@ -86,9 +86,9 @@ class AccelerometerLogger():
         self.send_accel()
         
     def add_to_time(self):
-        act_time = time.time()
+        act_time = time.perf_counter()
         dt = act_time - self.current_t
-        self.t += dt
+        self.t = act_time - self.start_time
         self.dt = dt
         self.current_t = act_time
         
