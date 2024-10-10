@@ -8,7 +8,7 @@ app = Flask(__name__)
 def get_csvs(folder_name):
     home = os.path.expanduser('~') 
     
-    folder_path = os.path.join(home,'Desktop', 'MPU6050') # Cambia esto a la ruta donde están tus archivos CSV
+    folder_path = os.path.join(home,'Desktop', 'MPU6050', folder_name) # Cambia esto a la ruta donde están tus archivos CSV
     zip_filename = f'{folder_name}.zip'
 
     # Crear un archivo zip con todos los CSVs
