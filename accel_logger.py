@@ -79,6 +79,11 @@ class AccelerometerLogger():
 
         print("Calibrated values: Ax: {}, Ay: {}, Az: {}".format(self.x_offset, self.y_offset, self.z_offset))
 
+        # Reset the timing after calibration
+        self.start_time = time.perf_counter()  # Reset start time for logging
+        self.current_t = self.start_time       # Ensure current time is reset as well
+        self.t = 0                             # Start the time tracking from 0
+        
         return self.x_offset, self.y_offset, self.z_offset
         
     def send_after_calib(self):
