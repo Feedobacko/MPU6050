@@ -17,7 +17,6 @@ ACCEL_SCALE_MODIFIER_4G = 8192.0
 ACCEL_SCALE_MODIFIER_8G = 4096.0
 ACCEL_SCALE_MODIFIER_16G = 2048.0
 
-
 PWR_MGMT_1 = 0x6B
 PWR_MGMT_2 = 0x6C
 
@@ -117,4 +116,5 @@ def read_accel_range(raw = False):
         else:
             return -1
 
-set_accel_range(ACCEL_RANGE_16G)
+set_accel_range(ACCEL_RANGE_2G)
+#set_accel_range(ACCEL_RANGE_16G)
