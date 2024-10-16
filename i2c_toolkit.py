@@ -116,5 +116,5 @@ def read_accel_range(raw = False):
         else:
             return -1
 
-set_accel_range(ACCEL_RANGE_2G)
-#set_accel_range(ACCEL_RANGE_16G)
+#set_accel_range(ACCEL_RANGE_2G)
+set_accel_range(ACCEL_RANGE_16G)

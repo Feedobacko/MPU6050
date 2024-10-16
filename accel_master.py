@@ -9,7 +9,7 @@ import accel_utils as aul
 host = '192.168.168.67'  
 port = 65410
 
-foldername = 'freq_nat'  
+foldername = 'pruebas-full-1610'  
 
 save_every = 1000
 desired_hz = 160
